@@ -3,8 +3,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class exercise0401 {
-    public int countPalindromicSubsequence(String s) {
-        Set<Character> letters = new HashSet();
+    public static int countPalindromicSubsequence(String s) {
+        Set<Character> letters = new HashSet<>();
         for (Character c: s.toCharArray()) {
             letters.add(c);
         }
@@ -24,7 +24,7 @@ public class exercise0401 {
                 }
             }
 
-            Set<Character> between = new HashSet();
+            Set<Character> between = new HashSet<>();
             for (int k = i + 1; k < j; k++) {
                 between.add(s.charAt(k));
             }
