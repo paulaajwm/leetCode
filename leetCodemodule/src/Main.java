@@ -16,10 +16,15 @@ public class Main {
         //3
         int[] nums ={2,3,1,0};
         int e3 = exercises0301.waysToSplitArray(nums);
-        System.out.println(e3);*/
+        System.out.println(e3);
 
         //4
         int e4 = exercise0401.countPalindromicSubsequence("aabca");
-        System.out.println(e4);
+        System.out.println(e4);*/
+
+        String s="abc";
+        int[][] m = {{0,1,0},{1,2,1},{0,2,1}};
+        String e5 =exercise0401.shiftingLetters(s,m);
+        System.out.println(e5);
     }
 }

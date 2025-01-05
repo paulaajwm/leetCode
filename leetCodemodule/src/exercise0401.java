@@ -34,4 +34,31 @@ public class exercise0401 {
 
         return ans;
     }
+
+    public static String shiftingLetters(String s, int[][] shifts) {
+        int n=s.length();
+        int[] prefix = new int[n+1];
+        int start, end, direction;
+
+        for(int i=0;i<shifts.length;i++){
+            start=shifts[i][0];
+            end=shifts[i][1];
+            direction=shifts[i][2];
+
+            int val = (direction == 1) ? 1 : -1;
+            prefix[start] += val;
+            prefix[end + 1] -= val;
+        }
+
+        int shiftAmount = 0;
+        char[] result = s.toCharArray();
+        for (int i = 0; i < n; i++) {
+            shiftAmount += prefix[i];
+            int newChar = ((result[i] - 'a') + shiftAmount) % 26;
+            if (newChar < 0) newChar += 26;  // Ajuste para valores negativos
+            result[i] = (char) ('a' + newChar);
+        }
+
+        return new String(result);
+    }
 }
