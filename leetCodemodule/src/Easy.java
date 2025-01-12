@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class exercise0201 {
+public class Easy {
     public static int maxScore(String s) {
         int n = s.length();
         int[] prefix = new int[n];
@@ -59,5 +59,38 @@ public class exercise0201 {
         }
 
         return ans;
+    }
+
+    public static boolean hasGroupsSizeX(int[] deck) {
+        int n = deck.length;
+        HashSet<Integer> diff = new HashSet<Integer>();
+
+        if(n==1) return false;
+
+        for (int i=0; i<n; i++){
+            diff.add(deck[i]);
+        }
+
+        int size = diff.size();
+        int[] count = new int[size];
+
+
+        for (int i : diff){
+            int c = 0;
+            for (int j = 0; j<n; j++){
+                if(deck[j]==i){
+                    c++;
+                    count[size-1]=c;
+                }
+            }
+            size--;
+        }
+
+        for(int i=0; i<count.length; i++){
+            if(i>0 && count[i-1]!=count[i]){
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-public class exercises0301 {
+public class Hard {
     public static int waysToSplitArray(int[] nums) {
         int solution=0;
         long sumLeft=0, sumRight=0, totalSum=0;
