@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -92,5 +93,28 @@ public class Easy {
             }
         }
         return true;
+    }
+
+    public boolean areAlmostEqual(String s1, String s2) {
+        int cont=0;
+        int[] freq1 = new int[26];
+        int[] freq2 = new int[26];
+        if(s1.equals(s2)) return true;
+        else{
+            for(char c : s1.toCharArray()){
+                freq1[c-'a']++;
+            }
+            for(char c : s2.toCharArray()){
+                freq2[c-'a']++;
+            }
+            if(Arrays.equals(freq1,freq2)){
+                for(int i=0; i<s1.length(); i++){
+                    if(s1.charAt(i)!=s2.charAt(i)) cont++;
+                }
+                if(cont<=2) return true;
+            }
+        }
+
+        return false;
     }
 }
