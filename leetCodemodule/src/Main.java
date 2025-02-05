@@ -36,11 +36,19 @@ public class Main {
 
         int[] deck = {1,1};
         boolean e7 = Easy.hasGroupsSizeX(deck);
-        System.out.println(e7);*/
+        System.out.println(e7);
 
         String[] words1={"amazon","apple","facebook","google","leetcode"};
         String[] words2={"e","o"};
         ArrayList<String> words=Medium.wordSubsets(words1,words2);
         System.out.println(words);
+
+        String s = "abaacbcbb";
+        int e8 = Medium.minimumLength(s);
+        System.out.println(e8);*/
+
+        int[] nums = {10,2};
+        String e9 = Medium.largestNumber(nums);
+        System.out.println(e9);
     }
 }
