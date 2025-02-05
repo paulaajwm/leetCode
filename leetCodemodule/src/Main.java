@@ -45,10 +45,14 @@ public class Main {
 
         String s = "abaacbcbb";
         int e8 = Medium.minimumLength(s);
-        System.out.println(e8);*/
+        System.out.println(e8);
 
         int[] nums = {10,2};
         String e9 = Medium.largestNumber(nums);
-        System.out.println(e9);
+        System.out.println(e9);*/
+
+        int[] nums ={1,5,1,1,6,4};
+        int[] e10 = Medium.wiggleSort(nums);
+        System.out.println(Arrays.toString(e10));
     }
 }

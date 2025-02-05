@@ -278,4 +278,37 @@ public class Medium {
         return max;
     }
 
+    public static int[] wiggleSort(int[] nums) {
+        int[] numsNew = new int[nums.length];
+        Arrays.sort(nums);
+
+        for(int i=0; i<nums.length; i++){
+            numsNew[i] = nums[i];
+        }
+
+        int i=0;
+        int j=nums.length-1;
+
+        while(i<nums.length){
+            if(i%2!=0){
+                nums[i]=numsNew[j];
+                j--;
+            }
+            i++;
+        }
+
+        int t=nums.length-1;
+        int k=0;
+        while(t>=0){
+            if(t%2==0){
+                nums[t]=numsNew[k];
+                k++;
+            }
+            t--;
+        }
+
+        return nums;
+
+    }
+
 }
