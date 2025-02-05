@@ -211,4 +211,71 @@ public class Medium {
         return true;
     }
 
+    public static int minimumLength(String s) {
+        int[] freq = new int[26];
+        int length = s.length();
+        for(char c : s.toCharArray()){
+            freq[c-'a']++;
+        }
+
+        for(int i = 0; i<freq.length; i++){
+            if(freq[i]>=3){
+                while(freq[i]>2){
+                    freq[i] -= 2;
+                    length -= 2;
+                }
+            }
+        }
+        return length;
+    }
+
+    public static String largestNumber(int[] nums) {
+        String sol = "";
+        int maxNum;
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (int num : nums) {
+            list.add(num);
+        }
+
+        while(!list.isEmpty()){
+            maxNum = candidate(list);
+            sol = sol + maxNum;
+            list.remove(Integer.valueOf(maxNum));
+        }
+        return sol;
+    }
+
+    private static int candidate(ArrayList<Integer> nums) {
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < nums.size(); i++) {
+            int length = String.valueOf(i).length();
+            ArrayList<Integer> result = new ArrayList<>();
+            ArrayList<Integer> maxResult = new ArrayList<>();
+            int number = nums.get(i), maxNumber = max;
+
+            for (int j = length - 1; j >= 0; j--) {
+                result.add(number % 10);
+                number /= 10;
+            }
+
+            for (int k = length - 1; k >= 0; k--) {
+                maxResult.add(maxNumber % 10);
+                maxNumber /= 10;
+            }
+
+            int n = 0;
+            while (n < result.size() && n < maxResult.size()) {
+                if (result.get(n) > maxResult.get(n)) {
+                    max = i;
+                    break;
+                } else {
+                    n++;
+                }
+            }
+        }
+        return max;
+    }
+
 }
